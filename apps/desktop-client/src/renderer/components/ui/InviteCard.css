@@ -1,0 +1,113 @@
+.invite-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 300px;
+  box-shadow: var(--shadow-md);
+}
+
+.invite-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.invite-icon {
+  font-size: 20px;
+}
+
+.invite-content {
+  margin-bottom: 12px;
+}
+
+.invite-group-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.invite-info {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.invite-expiry {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.invite-expiry .expired {
+  color: var(--danger-color);
+  font-weight: 500;
+}
+
+.invite-password {
+  margin-bottom: 12px;
+}
+
+.password-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.password-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.invite-error {
+  color: var(--danger-color);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.invite-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.invite-cancel,
+.invite-accept {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.invite-cancel {
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.invite-cancel:hover {
+  background: var(--border-color);
+}
+
+.invite-accept {
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+}
+
+.invite-accept:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.invite-accept:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

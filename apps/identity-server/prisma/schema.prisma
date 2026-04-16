@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String        @id @default(uuid())
+  username          String        @unique
+  email             String        @unique
+  passwordHash      String
+  salt              Bytes        @db.Binary(16)
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  isActive          Boolean      @default(true)
+  failedLoginCount  Int          @default(0)
+  lockedUntil      DateTime?
+
+  publicKey        PublicKey?
+  sessions        Session[]
+  passwordResets   PasswordReset[]
+
+  @@index([email])
+  @@index([username])
+}
+
+model PublicKey {
+  userId      String  @unique @map("user_id")
+  user        User    @relation("UserPublicKey", fields: [userId], references: [id], onDelete: Cascade)
+  pubKeyEnc   Bytes
+  pubKeyHash Bytes   @db.Binary(32)
+  updatedAt   DateTime @default(now())
+
+  @@index([pubKeyHash])
+}
+
+model Session {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenJti    String   @unique
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  ipAddress   String?
+  userAgent  String?
+
+  @@index([tokenJti])
+  @@index([userId])
+}
+
+model PasswordReset {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     Bytes    @db.Binary(32)
+  expiresAt DateTime
+  usedAt    DateTime?
+
+  @@index([token])
+}

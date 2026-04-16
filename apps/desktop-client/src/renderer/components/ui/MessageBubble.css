@@ -1,0 +1,103 @@
+.message-bubble {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  word-wrap: break-word;
+}
+
+.message-bubble.sent {
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.message-bubble.received {
+  align-self: flex-start;
+  background-color: var(--light-bg);
+  color: var(--text-primary);
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.reply-indicator {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.message-time {
+  margin-left: auto;
+}
+
+/* Text content */
+.text-content {
+  line-height: 1.5;
+}
+
+/* Image message */
+.image-message {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Voice message */
+.voice-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.voice-icon {
+  font-size: 20px;
+}
+
+.voice-content {
+  font-size: 13px;
+}
+
+/* File message */
+.file-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.file-icon {
+  font-size: 20px;
+}
+
+.file-name {
+  font-size: 13px;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Invite message */
+.invite-message {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.invite-name {
+  font-weight: 600;
+}

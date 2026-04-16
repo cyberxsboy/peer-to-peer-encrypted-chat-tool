@@ -1,0 +1,72 @@
+{
+  "name": "@securep2p/desktop-client",
+  "version": "1.0.0",
+  "description": "桌面客户端",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:main\" \"pnpm run dev:renderer\"",
+    "dev:main": "tsx watch src/main/index.ts",
+    "dev:renderer": "vite",
+    "build": "pnpm run build:main && pnpm run build:renderer",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "vite build",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "^12.0.0",
+    "@libp2p/bootstrap": "^1.0.12",
+    "@libp2p/mdns": "^1.0.19",
+    "@libp2p/mplex": "^1.0.14",
+    "@libp2p/peer-id": "^1.1.19",
+    "@libp2p/pubsub": "^1.2.3",
+    "@libp2p/tcp": "^2.0.4",
+    "@libp2p/websockets": "^2.0.6",
+    "@libp2p/yamux": "^1.1.7",
+    "@reduxjs/toolkit": "^2.2.5",
+    "@types/uuid": "^9.0.8",
+    "electron-log": "^5.1.2",
+    "electron-store": "^8.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "libp2p": "^0.46.1",
+    "libsodium-wrappers": "^0.7.13",
+    "og-scraper": "^4.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.1",
+    "react-router-dom": "^6.22.3",
+    "sharp": "^0.33.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24",
+    "@types/node": "^20.11.25",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.2.5",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
+  },
+  "build": {
+    "appId": "com.securep2p.chat",
+    "productName": "SecureP2P Chat",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

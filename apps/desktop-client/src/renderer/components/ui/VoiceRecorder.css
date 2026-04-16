@@ -1,0 +1,142 @@
+.voice-recorder-btn {
+  padding: 10px 20px;
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.voice-recorder-btn:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+/* Recording state */
+.voice-recorder-recording {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #fff0f0;
+  border: 1px solid #feb2b2;
+  border-radius: 8px;
+}
+
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--danger-color);
+  font-size: 14px;
+}
+
+.recording-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--danger-color);
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+.recording-time {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.recording-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.recording-cancel,
+.recording-stop {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.recording-cancel {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.recording-stop {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+/* Preview state */
+.voice-recorder-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: var(--light-bg);
+  border-radius: 8px;
+}
+
+.preview-play {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.preview-time {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.preview-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.preview-cancel,
+.preview-send {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.preview-cancel {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.preview-send {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+}
+
+.preview-send:hover {
+  background-color: var(--primary-hover);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
